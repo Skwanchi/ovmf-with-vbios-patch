@@ -32,13 +32,13 @@ jobs:
         sudo apt clean
         docker rmi $(docker image ls -aq)
         df -h
-    - uses: actions/checkout@v2.5.0
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0
     - name: Build patched OVMF
       run: |
         ./bin/build.sh
-    - uses: actions/upload-artifact@v2.0.1
+    - uses: actions/upload-artifact@v4
       continue-on-error: true
       with:
         name: ovmf-patched
